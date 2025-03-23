@@ -10,7 +10,7 @@ Steps to install and run the application.
 ### Installation
 *1. Clone the repository:*
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/SriArunM/News_Summarization.git
    cd News_Summarization
 ```
 *2. Install dependencies:*
