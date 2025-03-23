@@ -5,7 +5,16 @@ Steps to install and run the application.
 
 ### Prerequisites
 - Python 3.8 or higher.  
-- Pip (Python package manager).  
+- Pip (Python package manager).
+
+### Directory
+project/
+│
+├── api.py              # FastAPI backend
+├── utils.py            # Utility functions
+├── app.py              # Streamlit frontend
+└── requirements.txt    # Dependencies
+└── config.py           # setup file to create instances of the required API clients.
 
 ### Installation
 *1. Clone the repository:*
@@ -43,7 +52,7 @@ streamlit run app.py
 ```
 The frontend will be available at `http://localhost:8501`
 
-###Config.py  file serves as a setup file to create instances of the required API clients.
+
 ## Model Details
 Explanation of models used for summarization, sentiment analysis, and TTS.
 
