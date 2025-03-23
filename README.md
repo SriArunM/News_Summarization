@@ -21,8 +21,8 @@ Steps to install and run the application.
 ```
 *2. Create virtual environment:*
    ```bash
-      python -m venv venv
-      ./venv/Source/activate
+   python -m venv venv
+   .\venv\Scripts\activate
 ```
 *3. Install dependencies:*
    ```bash
