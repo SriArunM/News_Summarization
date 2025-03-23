@@ -3,7 +3,11 @@ from langchain_groq import ChatGroq
 from google import genai
 from openai import OpenAI
 from translate import Translator
+from dotenv import load_dotenv
 import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Read from secrets
 API_URL = "https://router.huggingface.co/hf-inference/models/facebook/mms-tts-hin"

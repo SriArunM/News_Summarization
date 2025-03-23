@@ -1,58 +1,54 @@
 import streamlit as st
-from utils import (
-    extract_news,
-    generate_comparative_analysis,
-    add_topic_overlap_to_coverage_differences,
-    generate_company_analysis_in_hindi,
-    convert_text_to_speech,
-)
+import requests
 import json
+import os
+
+API_URL = "http://127.0.0.1:8000/extract-news/"
 
 
-# Streamlit app
 def main():
     st.title("Company News Analyzer")
 
     # Input for company name
     company_name = st.text_input("Enter company name:")
 
-    if company_name:
-        st.write(f"Fetching news for {company_name}...")
+    # Add a Submit button
+    if st.button("Submit"):
+        if company_name:
+            st.write(f"Fetching news for {company_name}...")
 
-        # Extract news articles
-        news_articles = extract_news(company_name)
+            try:
+                response = requests.post(API_URL, json={"company_name": company_name})
 
-        if news_articles.get("Articles"):
+                if response.status_code == 200:
+                    data = response.json()
 
-            # Generate comparative analysis
-            updated_news_articles = generate_comparative_analysis(news_articles)
+                    # Display sentiment report in sidebar
+                    if "sentiment_report" in data and data["sentiment_report"]:
+                        st.sidebar.write("**Company Analysis in Hindi:**")
+                        st.sidebar.write(data["sentiment_report"])
 
-            # Add topic overlap analysis
-            updated_news_articles = add_topic_overlap_to_coverage_differences(
-                updated_news_articles
-            )
+                        # Play audio file if available
+                        if data.get("audio_file") and os.path.exists(
+                            data["audio_file"]
+                        ):
+                            with open(data["audio_file"], "rb") as audio_file:
+                                st.audio(audio_file, format="audio/mp3")
 
-            # Generate company analysis in Hindi
-            sentiment_report = generate_company_analysis_in_hindi(
-                company_name, updated_news_articles
-            )
+                    # Display comparative analysis and topic overlap
+                    if "articles" in data:
+                        st.write(
+                            "Updated Articles with Comparative Analysis and Topic Overlap:"
+                        )
+                        st.json(data["articles"])
 
-            if sentiment_report:
-                # Display in sidebar
-                st.sidebar.write("**Company Analysis in Hindi:**")
-                st.sidebar.write(sentiment_report)
+                else:
+                    st.write(f"Error: {response.json().get('detail')}")
 
-                # Convert text to speech
-                hindi_audio = convert_text_to_speech(sentiment_report, "output.mp3")
-
-                if hindi_audio:
-                    st.audio(hindi_audio, format="audio/mp3")
-
-            st.write("Updated Articles with Comparative Analysis and Topic Overlap:")
-            st.json(updated_news_articles)
-
+            except Exception as e:
+                st.write(f"An error occurred: {e}")
         else:
-            st.write("No articles found.")
+            st.write("Please enter a company name.")
 
 
 if __name__ == "__main__":

@@ -38,6 +38,7 @@ def extract_news(company, num_articles=10):
 
     while len(articles) < num_articles:
         try:
+            # for url in google_search(f"{company} news", num=num_articles * 2, stop=num_articles * 2):
             for url in search(f"{company} news", num_results=num_articles * 2):
                 if url in seen_urls or any(
                     blocked in url
