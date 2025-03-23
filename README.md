@@ -28,9 +28,13 @@ Steps to install and run the application.
    ```bash
    pip install -r requirements.txt
 ```
-   
+*4.Open another terminal for frontend:*
+   ```bash
+ cd News_Summarization
+ .\venv\Scripts\activate
+```
 
-*4. Set up API keys:*
+*5. Set up API keys:*
 - Obtain API keys for:
   - Hugging Face (for Inference API) → Due to less computational resources
   - OpenRouter (for qwq-32B)
@@ -38,8 +42,8 @@ Steps to install and run the application.
   - Groq API key (llama3.3-70B-versatile)
 - Add the keys to the `.env` file
 
-*5. Running the Application:*
-- Start the FastAPI backend:
+*6. Running the Application:*
+- Start the FastAPI backend in one terminal:
   
      ```bash
       python api.py
@@ -47,7 +51,7 @@ Steps to install and run the application.
 
 The backend will be available at `http://127.0.0.1:8000`.
 
-- Start the Streamlit frontend:
+- Start the Streamlit frontend in another terminal:
 
 ```bash
 streamlit run app.py
