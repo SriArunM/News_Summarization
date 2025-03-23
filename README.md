@@ -8,13 +8,7 @@ Steps to install and run the application.
 - Pip (Python package manager).
 
 ### Directory
-project/
-│
-├── api.py              # FastAPI backend
-├── utils.py            # Utility functions
-├── app.py              # Streamlit frontend
-└── requirements.txt    # Dependencies
-└── config.py           # setup file to create instances of the required API clients.
+![image](https://github.com/user-attachments/assets/c574e620-2f8b-466c-9f50-05d0417faea0)
 
 ### Installation
 *1. Clone the repository:*
