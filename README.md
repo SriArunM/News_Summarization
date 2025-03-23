@@ -15,21 +15,20 @@ Steps to install and run the application.
 2. Install dependencies:
    ```bash
    pip install -r requirements.txt
+
    
-3.Set up API keys:
 
-Obtain API keys for:
+3. Set up API keys:
+- Obtain API keys for:
+  - Hugging Face (for Inference API) → Due to less computational resources
+  - OpenRouter (for qwq-32B)
+  - Google Gemini (Gemma-27B)
+  - Groq API key (llama3.3-70B-versatile)
+- Add the keys to the `.env` file
 
-  Hugging Face (for Inference API) → Due to less computational resources
-  OpenRouter (for qwq-32B)
-  Google Gemini (Gemma-27B)
-  Groq API key (llama3.3-70B-versatile)
-
-Add the keys to the .env file.
-
-4.Running the Application:
-
-Start the FastAPI backend:
+4. Running the Application:
+- Start the FastAPI backend:
+  
   ```bash
    python api.py
 
