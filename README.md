@@ -43,6 +43,7 @@ streamlit run app.py
 ```
 The frontend will be available at `http://localhost:8501`
 
+###Config.py  file serves as a setup file to create instances of the required API clients.
 ## Model Details
 Explanation of models used for summarization, sentiment analysis, and TTS.
 
