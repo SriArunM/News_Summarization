@@ -1,5 +1,8 @@
 # News Summarization and Sentiment Analysis
 
+## 🌐 Try it on Hugging Face  
+[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-FFCC4D?style=flat&logo=huggingface&logoColor=black)](https://huggingface.co/spaces/SriArun/NewsSummarization)
+
 ## 1. Project Setup
 Steps to install and run the application.
 
