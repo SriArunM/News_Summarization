@@ -19,13 +19,18 @@ Steps to install and run the application.
    git clone https://github.com/SriArunM/News_Summarization.git
    cd News_Summarization
 ```
-*2. Install dependencies:*
+*2. Create virtual environment:*
+   ```bash
+      python -m venv venv
+      ./venv/Source/activate
+```
+*3. Install dependencies:*
    ```bash
    pip install -r requirements.txt
 ```
    
 
-*3. Set up API keys:*
+*4. Set up API keys:*
 - Obtain API keys for:
   - Hugging Face (for Inference API) → Due to less computational resources
   - OpenRouter (for qwq-32B)
@@ -33,7 +38,7 @@ Steps to install and run the application.
   - Groq API key (llama3.3-70B-versatile)
 - Add the keys to the `.env` file
 
-*4. Running the Application:*
+*5. Running the Application:*
 - Start the FastAPI backend:
   
      ```bash
@@ -50,7 +55,7 @@ streamlit run app.py
 The frontend will be available at `http://localhost:8501`
 
 
-## Model Details
+## 2.Model Details
 Explanation of models used for summarization, sentiment analysis, and TTS.
 
 ### Summarization Model: facebook/bart-large-cnn (Hugging Face)
